@@ -1,3 +1,4 @@
+import 'package:fantasy_golf/pages/tournaments_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
@@ -40,12 +41,19 @@ class _BottomNavState extends State<BottomNav> {
         Container(
           color: Colors.red,
           alignment: Alignment.center,
-          child: const Text('Page 1'),
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/tournaments');
+              },
+              child: const Text('Tournaments'),
+            ),
+          ),
         ),
         Container(
           color: Colors.green,
           alignment: Alignment.center,
-          child: const Text('Page 2'),
+          child: const TournamentsPage(title: 'Tournaments V2'),
         ),
         Container(
           color: Colors.blue,
