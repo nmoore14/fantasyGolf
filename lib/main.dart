@@ -1,5 +1,3 @@
-import 'package:fantasy_golf/pages/golers_page.dart';
-import 'package:fantasy_golf/pages/tournaments_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fantasy_golf/components/nav/bottom_nav.dart';
 import 'package:fantasy_golf/components/nav/side_rail.dart';
