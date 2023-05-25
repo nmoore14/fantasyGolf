@@ -21,11 +21,7 @@ class FantasyGolfApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const GolfersPage(title: 'Current Golfers'),
-        '/tournaments': (context) => const TournamentsPage(title: 'Tournaments'),
-      },
+      home: queryData.size.width < 768.0 ? const BottomNav() : const SideRail(),
     );
   }
 }
