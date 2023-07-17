@@ -1,66 +1,61 @@
-import 'package:fantasy_golf/pages/tournaments_page.dart';
 import 'package:flutter/material.dart';
 
+class NavDestination {
+  const NavDestination(this.label, this.icon, this.selectedIcon);
+
+  final String label;
+  final Widget icon;
+  final Widget selectedIcon;
+}
+
+const List<NavDestination> destinations = <NavDestination>[
+  NavDestination(
+    'Golfers',
+    Icon(Icons.groups_outlined),
+    Icon(Icons.groups),
+  ),
+  NavDestination(
+    'Tournaments',
+    Icon(Icons.groups_outlined),
+    Icon(Icons.groups),
+  ),
+  NavDestination(
+    'Club House',
+    Icon(Icons.groups_outlined),
+    Icon(Icons.groups),
+  ),
+];
+
 class BottomNav extends StatefulWidget {
-  const BottomNav({super.key});
+  final updatePageIndex;
+  const BottomNav (this.updatePageIndex, {Key? key}) : super(key: key);
 
   @override
   State<BottomNav> createState() => _BottomNavState();
 }
 
 class _BottomNavState extends State<BottomNav> {
-  int currentPageIndex = 0;
+  int currentPageIndex = 1;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            icon: Icon(Icons.explore),
-            label: 'Explore',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.commute),
-            label: 'Commute',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.bookmark),
-            icon: Icon(Icons.bookmark_border),
-            label: 'Saved',
-          ),
-        ],
-      ),
-      body: <Widget>[
-        Container(
-          color: Colors.red,
-          alignment: Alignment.center,
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/tournaments');
-              },
-              child: const Text('Tournaments'),
-            ),
-          ),
-        ),
-        Container(
-          color: Colors.green,
-          alignment: Alignment.center,
-          child: const TournamentsPage(title: 'Tournaments V2'),
-        ),
-        Container(
-          color: Colors.blue,
-          alignment: Alignment.center,
-          child: const Text('Page 3'),
-        ),
-      ][currentPageIndex],
+    return NavigationBar(
+      onDestinationSelected: (int index) {
+        setState(() {
+          currentPageIndex = index;
+        });
+        widget.updatePageIndex(index);
+      },
+      selectedIndex: currentPageIndex,
+      destinations: destinations.map(
+        (NavDestination destination) {
+          return NavigationDestination(
+            icon: destination.icon,
+            selectedIcon: destination.selectedIcon,
+            label: destination.label,
+          );
+        }
+      ).toList(),
     );
   }
 }

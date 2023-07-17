@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fantasy_golf/components/nav/bottom_nav.dart';
 
 class ClubHousePage extends StatelessWidget {
   const ClubHousePage ({Key? key, required this.title}) : super(key: key);
@@ -14,7 +13,6 @@ class ClubHousePage extends StatelessWidget {
       body: const Center(
         child: Text('My Club House'),
       ),
-      bottomNavigationBar: const BottomNav(),
     );
   }
 }
