@@ -6,18 +6,14 @@ class TournamentsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Column(
+    return Column(
+      children: <Widget>[
+        Row(
           children: <Widget>[
-            Text('Tournaments')
-          ]
+            Text(title),
+          ],
         ),
-      ),
+      ],
     );
   }
 }

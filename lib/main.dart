@@ -49,12 +49,18 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Fantasy Golf'),
-        actions: const <Widget>[
+        actions: <Widget>[
+          IconButton(onPressed: () => {},
+            icon: const Icon(Icons.notifications),
+          ),
+          IconButton(onPressed: () => {},
+            icon: const Icon(Icons.person),
+          ),
         ],
       ),
       body: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(top: 48.0),
+          padding: const EdgeInsets.only(top: 8.0),
           child: Container(
             alignment: Alignment.center,
             child: const GolfersPage(title: 'Golfers'),
@@ -68,14 +74,14 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 48.0),
+          padding: const EdgeInsets.only(top: 8.0),
           child: Container(
             alignment: Alignment.center,
             child: const ClubHousePage(title: 'My Club House'),
           ),
         ),
       ][currentPageIndex],
-      bottomNavigationBar: BottomNav(updatePageIndex),
+      bottomNavigationBar: BottomNav(updatePageIndex)
     );
   }
 }

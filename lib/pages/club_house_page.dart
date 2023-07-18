@@ -6,13 +6,14 @@ class ClubHousePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: const Center(
-        child: Text('My Club House'),
-      ),
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Text(title),
+          ],
+        ),
+      ],
     );
   }
 }
