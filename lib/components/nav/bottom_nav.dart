@@ -9,24 +9,27 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  int currentPageIndex = 1;
+  int currentPageIndex = 3;
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem> [
         BottomNavigationBarItem(
-          icon: Icon(Icons.groups_outlined),
+          icon: Icon(Icons.sports_golf),
           label: 'Golfers',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.groups_outlined),
+          icon: Icon(Icons.golf_course),
           label: 'Tournaments',
-          backgroundColor: Colors.deepPurple,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.groups_outlined),
+          icon: Icon(Icons.house),
           label: 'Club House',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle),
+          label: 'Profile',
         ),
       ],
       currentIndex: currentPageIndex,
@@ -36,6 +39,7 @@ class _BottomNavState extends State<BottomNav> {
         });
         widget.updatePageIndex(index);
       },
+      unselectedItemColor: Colors.black,
       selectedItemColor: Colors.deepOrange,
     );
   }

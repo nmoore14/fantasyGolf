@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constants/colors.dart';
-
-class ClubHousePage extends StatelessWidget {
-  const ClubHousePage ({Key? key, required this.title}) : super(key: key);
+class ProfilePage extends StatelessWidget {
+  const ProfilePage ({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -19,18 +17,6 @@ class ClubHousePage extends StatelessWidget {
               child: Column(
                   children: <Widget>[
                     Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Welcome',
-                        style: GoogleFonts.quicksand(
-                          textStyle: const TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                    ),
-                    Align(
                     alignment: Alignment.topLeft,
                       child: Text(
                         title.toUpperCase(),
@@ -38,7 +24,6 @@ class ClubHousePage extends StatelessWidget {
                           textStyle: const TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
-                            color: AppColor.blueColor,
                           )
                         ),
                         textAlign: TextAlign.left,

@@ -4,6 +4,7 @@ import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:fantasy_golf/pages/club_house_page.dart';
 import 'package:fantasy_golf/pages/golfers_page.dart';
 import 'package:fantasy_golf/pages/tournaments_page.dart';
+import 'package:fantasy_golf/pages/profile_page.dart';
 //home: queryData.size.width < 768.0 ? const BottomNav() : const SideRail(),
 
 void main() => runApp(const FantasyGolfApp());
@@ -35,13 +36,13 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    currentPageIndex = 1;
+    currentPageIndex = 3;
   }
 
   void updatePageIndex(int newIndex) {
     setState(() {
-          currentPageIndex = newIndex;
-        });
+      currentPageIndex = newIndex;
+    });
   }
   
   @override
@@ -54,13 +55,13 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.notifications),
           ),
           IconButton(onPressed: () => {},
-            icon: const Icon(Icons.person),
+            icon: const Icon(Icons.settings),
           ),
         ],
       ),
       body: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: 4.0),
           child: Container(
             alignment: Alignment.center,
             child: const GolfersPage(title: 'Golfers'),
@@ -78,6 +79,13 @@ class _HomePageState extends State<HomePage> {
           child: Container(
             alignment: Alignment.center,
             child: const ClubHousePage(title: 'My Club House'),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Container(
+            alignment: Alignment.center,
+            child: const ProfilePage(title: 'Profile'),
           ),
         ),
       ][currentPageIndex],
